@@ -1,7 +1,3 @@
-describe "working test", ->
-  When -> @message = "hello"
-  Then -> expect(@message).toEqual("hello")
-
 describe "adding integers", ->
   describe "0 + 0 = 0", ->
     When -> @sum = new tdd.Fraction(0).add(new tdd.Fraction(0))
@@ -32,3 +28,7 @@ describe "adding fractions", ->
   describe "0 + negative fraction = negative fraction", ->
     When -> @sum = new tdd.Fraction(0).add(new tdd.Fraction(-1/2))
     Then -> expect(@sum.val()).toEqual(-1/2)
+
+  describe "0 + 2/2 = 1", ->
+    When -> @sum = new tdd.Fraction(0).add(new tdd.Fraction(2/2))
+    Then -> expect(@sum.val()).toEqual(1)
