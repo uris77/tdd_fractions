@@ -14,3 +14,7 @@ describe "adding integers", ->
   describe "positive integer + positive integer", ->
     When -> @sum = new tdd.Fraction(5).add(new tdd.Fraction(7))
     Then -> expect(@sum.val()).toEqual(12)
+
+  describe "positive integer + smaller negative integer", ->
+    When -> @sum = new tdd.Fraction(21).add(new tdd.Fraction(-3))
+    Then -> expect(@sum.val()).toEqual(18)
