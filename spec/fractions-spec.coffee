@@ -28,3 +28,7 @@ describe "adding fractions", ->
   describe "0 + a fraction = a fraction", ->
     When -> @sum = new tdd.Fraction(0).add(new tdd.Fraction(1/2))
     Then -> expect(@sum.val()).toEqual(1/2)
+
+  describe "0 + negative fraction = negative fraction", ->
+    When -> @sum = new tdd.Fraction(0).add(new tdd.Fraction(-1/2))
+    Then -> expect(@sum.val()).toEqual(-1/2)
