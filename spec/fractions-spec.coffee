@@ -40,3 +40,7 @@ describe "adding fractions", ->
   describe "25/5 + 0 = 5", ->
     When -> @sum = new tdd.Fraction(0).add(new tdd.Fraction(25/5))
     Then -> expect(@sum.val()).toEqual(5)
+
+  describe "2/2 + 4/4 = 2", ->
+    When -> @sum = new tdd.Fraction(2/2).add(new tdd.Fraction(4/4))
+    Then -> expect(@sum.val()).toEqual(2)
