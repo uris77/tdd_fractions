@@ -22,8 +22,9 @@ describe "adding integers", ->
 
 describe "adding fractions", ->
   describe "0 + a fraction = a fraction", ->
-    When -> @sum = new tdd.Fraction(0).add(new tdd.Fraction(1/2))
-    Then -> expect(@sum.val()).toEqual(1/2)
+    When -> @sum = new tdd.Fraction(0).add(new tdd.Fraction(1, 2))
+    Then -> expect(@sum.val()).toEqual(1)
+    And -> expect(@sum.toString()).toEqual('1/2')
 
   describe "0 + negative fraction = negative fraction", ->
     When -> @sum = new tdd.Fraction(0).add(new tdd.Fraction(-1/2))
@@ -48,3 +49,8 @@ describe "adding fractions", ->
   describe "4/2 + 81/9 = 11", ->
     When -> @sum = new tdd.Fraction(4/2).add(new tdd.Fraction(81/9))
     Then -> expect(@sum.val()).toEqual(11)
+
+  describe "1/4 + 2/4 = 3/4", ->
+    When -> @sum = new tdd.Fraction(1, 4).add(new tdd.Fraction(2, 4))
+    Then -> expect(@sum.val()).toEqual(3)
+
