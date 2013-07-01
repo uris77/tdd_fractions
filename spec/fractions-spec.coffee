@@ -74,3 +74,11 @@ describe "adding fractions", ->
   describe "gcf of 56 & 42 is 14", ->
     When -> @gcf = Factors.of(42, 56)
     Then -> expect(@gcf).toEqual(14)
+
+  describe "1/7 + 1/2 = 9/14", ->
+    describe "adding the fractions", ->
+      When -> @sum = new tdd.Fraction(1, 7).add(new tdd.Fraction(1, 2))
+      describe "the numerator is 9", ->
+        Then -> expect(@sum.numerator).toEqual(9)
+      describe "the denominator is 14", ->
+        Then -> expect(@sum.denominator).toEqual(14)
