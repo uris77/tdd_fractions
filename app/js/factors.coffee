@@ -7,8 +7,9 @@ window.Factors.of = (aNumber, bNumber) ->
     else
       @largestNumber = bNumber
       @smallestNumber = aNumber
-    gcf = @largestNumber
-    if !@largestNumber
-      gcf = Factors.of(@smallestNumber % @largestNumber, @largestNumber)
-    else
-      gcf
+    @gcf = @largestNumber
+    while @smallestNumber != 0
+      t = @smallestNumber
+      @smallestNumber = @largestNumber % t
+      @gcf = @largestNumber = t
+    @gcf

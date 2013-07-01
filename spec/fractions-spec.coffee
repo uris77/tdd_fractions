@@ -62,15 +62,15 @@ describe "adding fractions", ->
   describe "calculating gcf of 2 & 4", ->
     describe "smallest number first", ->
       When -> @gcf = Factors.of(2, 4)
-      Then -> expect(@gcf).toEqual(4)
+      Then -> expect(@gcf).toEqual(2)
     describe "smallest number last", ->
       When -> @gcf = Factors.of(4, 2)
-      Then -> expect(@gcf).toEqual(4)
+      Then -> expect(@gcf).toEqual(2)
 
+  describe "gcf of 8 & 12 is 4", ->
+    When -> @gcf = Factors.of(12, 4)
+    Then -> expect(@gcf).toEqual(4)
 
-#  describe "gcf of 1 is 1", ->
-#    When -> @gcf = Factors.of(1,1)
-#    Then -> expect(@gcf).toEqual(2)
-#
-
-
+  describe "gcf of 56 & 42 is 14", ->
+    When -> @gcf = Factors.of(42, 56)
+    Then -> expect(@gcf).toEqual(14)
