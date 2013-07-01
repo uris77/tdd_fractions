@@ -23,8 +23,10 @@ describe "adding integers", ->
 describe "adding fractions", ->
   describe "0 + a fraction = a fraction", ->
     When -> @sum = new tdd.Fraction(0).add(new tdd.Fraction(1, 2))
-    Then -> expect(@sum.val()).toEqual(1)
-    And -> expect(@sum.toString()).toEqual('1/2')
+    describe "the value is equal to the numerator", ->
+      Then -> expect(@sum.val()).toEqual(1)
+    describe "the string representation is 1/2", ->
+      Then -> expect(@sum.toString()).toEqual('1/2')
 
   describe "0 + negative fraction = negative fraction", ->
     When -> @sum = new tdd.Fraction(0).add(new tdd.Fraction(-1/2))
@@ -52,5 +54,23 @@ describe "adding fractions", ->
 
   describe "1/4 + 2/4 = 3/4", ->
     When -> @sum = new tdd.Fraction(1, 4).add(new tdd.Fraction(2, 4))
-    Then -> expect(@sum.val()).toEqual(3)
+    describe "the value is equal to the numerator", ->
+      Then -> expect(@sum.val()).toEqual(3)
+    describe "returns a string representation of the fraction", ->
+      Then -> expect(@sum.toString()).toEqual('3/4')
+
+  describe "calculating gcf of 2 & 4", ->
+    describe "smallest number first", ->
+      When -> @gcf = Factors.of(2, 4)
+      Then -> expect(@gcf).toEqual(4)
+    describe "smallest number last", ->
+      When -> @gcf = Factors.of(4, 2)
+      Then -> expect(@gcf).toEqual(4)
+
+
+#  describe "gcf of 1 is 1", ->
+#    When -> @gcf = Factors.of(1,1)
+#    Then -> expect(@gcf).toEqual(2)
+#
+
 

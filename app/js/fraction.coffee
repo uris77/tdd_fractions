@@ -1,11 +1,14 @@
 window.tdd or = {}
 
 class window.tdd.Fraction
-  constructor: (@numerator, @denominator=0) ->
+  constructor: (@numerator, @denominator=1) ->
 
   add: (other) ->
     _numerator = other.numerator + @numerator
-    _denominator = other.denominator + @denominator
+    if @numerator == 0
+      _denominator = other.denominator
+    else
+      _denominator = @denominator
     new tdd.Fraction(_numerator, _denominator)
 
   val: ->
@@ -13,5 +16,6 @@ class window.tdd.Fraction
 
   toString: ->
     if @denominator > 1
-      return "#{@numerator}/#{@denominator}"
-    @numerator
+      "#{@numerator}/#{@denominator}"
+    else
+      @numerator
